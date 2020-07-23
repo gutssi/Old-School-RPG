@@ -1,5 +1,5 @@
 ### PLAYER ###
-player = {}
+class player = 
 
 # HP
 player['HP'] = {}
