@@ -1,6 +1,6 @@
 import time
 from colorama import Fore
-from monsters import deadArt
+from art import deadArt
 from ownlib import printSlow, clearTop
 
 def deadScreen():
