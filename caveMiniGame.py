@@ -6,6 +6,7 @@ from ownlib import clearTop, printSlow
 from colorama import Fore, Back, Style
 import time
 import random
+import art, deadScreen
 
 
 run = True
@@ -222,10 +223,9 @@ xpGain = random.randint(9, 38)
 ############################# ATTACKS #################################
 
 def attkPlayer():
-	global health, playerDef, playerDefMod, npcAtkMod, npcAtk
+	global health, playerDef, playerDefMod, npcAtkMod, npcAtk, npcAtkMin, npcAtkMax
 
 	npcAtk = random.randint(npcAtkMin, npcAtkMax)
-	print(npcAtk)
 
 	health = health - npcAtk
 
@@ -258,7 +258,7 @@ def emptyF():
 	print(36 * '\033[1;37;40m-')
 
 def enemyF():
-	global playerWarning, xpDisplay, remainingXpDisplay
+	global playerWarning, xpDisplay, remainingXpDisplay, cyclop
 
 	print(clearTop) #Clear
 	print(Back.RED + "                                   " + Back.BLACK)
@@ -304,7 +304,7 @@ def emptyFr():
 	time.sleep(0.1)
 
 def emptyFrr():
-	global playerWarning, xpDisplay, remainingXpDisplay
+	global playerWarning, xpDisplay, remainingXpDisplay, clearTop, emptyFrame
 
 	print(clearTop) #Clear
 	print(Back.RED + "                                   " + Back.BLACK)
@@ -358,7 +358,7 @@ def updateBars():
 
 ### ANIMATION ###
 def EnemyAttacksPlayer():
-	global playerWarning, EremainingDisplay, remainingDisplay, run, npcAtk, xp , xpGain, remainingXpDisplay
+	global playerWarning, EremainingDisplay, remainingDisplay, run, npcAtk, xp , xpGain, remainingXpDisplay, emptyF, enemyF, enemyFr
 
 	emptyF()
 	time.sleep(0.1)
@@ -377,51 +377,7 @@ def EnemyAttacksPlayer():
 		remainingXpDisplay = " " * 31
 
 	if healthDisplay.count("+") < 1:
-		print(chr(27) + "[2J")
-		print(deadArt)
-		time.sleep(0.1)
-		print(chr(27) + "[2J")
-		print(deadArtRed)
-		time.sleep(0.1)
-		print(chr(27) + "[2J")
-		print(deadArt)
-		time.sleep(0.1)
-		print(chr(27) + "[2J")
-		print(deadArtRed)
-		print(chr(27) + "[2J")
-		print(deadArt)
-		time.sleep(0.1)
-		print(chr(27) + "[2J")
-		print(deadArtRed)
-		time.sleep(0.1)
-		print(chr(27) + "[2J")
-		print(deadArt)
-		time.sleep(0.1)
-		print(chr(27) + "[2J")
-		print(deadArtRed)
-		print(chr(27) + "[2J")
-		print(deadArt)
-		time.sleep(0.1)
-		print(chr(27) + "[2J")
-		print(deadArtRed)
-		time.sleep(0.1)
-		print(chr(27) + "[2J")
-		print(deadArt)
-		time.sleep(0.1)
-		print(chr(27) + "[2J")
-		print(deadArtRed)
-		print(chr(27) + "[2J")
-		print(deadArt)
-		time.sleep(0.1)
-		print(chr(27) + "[2J")
-		print(deadArtRed)
-		time.sleep(0.1)
-		print(chr(27) + "[2J")
-		print(deadArt)
-		time.sleep(0.1)
-		print(chr(27) + "[2J")
-		print(deadArtRed)
-		printSlow(Fore.RED + "You Died!\n" + Fore.WHITE)
+		deadScreen()
 
 
 
@@ -525,7 +481,6 @@ emptyFrr()
 time.sleep(0.1)
 playerWarning = "A Cyclop has seen you!"
 enemyF()
-time.sleep(1.6)
 playerWarning = " "
 
 
@@ -539,7 +494,6 @@ playerWarning = " "
 while run == True:
 	if EhealthDisplay.count("+") < 1:
 		emptyF()
-		time.sleep(1.5)
 		playerWarning = "Keep " + Fore.RED + "exploring " + Fore.WHITE + "the " + Fore.BLUE + "cave" + Fore.WHITE + " ?" + Fore.YELLOW + "   Yes" + Fore.WHITE + " / " + Fore.GREEN + "No " + Fore.WHITE
 		emptyF()
 

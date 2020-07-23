@@ -1,6 +1,10 @@
 
 from colorama import Fore, Back, Style
 import sys, time, random
+from ownlib import clearTop
+import art
+import GUI
+import deadScreen
 
 health = 200.0
 maxHealth = 200
@@ -43,7 +47,7 @@ npcDef = 10
 
 
 
-enemyPresent = False
+"""enemyPresent = False"""
 lootPresent = False
 trapBox = 0
 
@@ -81,9 +85,9 @@ z1 = "             |" + Fore.YELLOW + "L" + Style.RESET_ALL + "| | |\n"
 z2 = "             | |" + Fore.YELLOW + "L" + Style.RESET_ALL + "| |\n"
 z3 = "             | | |" + Fore.YELLOW + "L" + Style.RESET_ALL + "|\n"
 
-y1 = random.choice([c, c, z1, x1])
-y2 = random.choice([d, d, z2, x2])
-y3 = random.choice([e, e, z3, x3])
+y1 = random.choice([c, c, c, c, c, c, c, c, c, z1, x1])
+y2 = random.choice([d, d, d, d, d, d, d, d, d, z2, x2])
+y3 = random.choice([e, e, e, e, e, e, e, e, e, z3, x3])
 
 
 # Map Display
@@ -255,23 +259,18 @@ def getHealed():
 	global health
 	health += 30
 
-def saveState():
-	save = open('testfile.txt', "w")
-	o = "Game is saved."
-	o.write(string)
-	o.close()
 
 def enemyPresent():
 
     global randomA
     global NPCrate
 
-    if randomA == NPCrate:
+    """if randomA == NPCrate:
         enemyPresent = True
         return enemyPresent
     elif randomA != NPCrate:
         enemyPresent = False
-        return enemyPresent
+        return enemyPresent"""
 
 def updateFrame():
 
@@ -308,9 +307,9 @@ def updateFrame():
     global mana, maxMana, minMana, manaDashes
     global answer, trapBox, battleScreen
 
-    y1 = random.choice([c, c, z1, x1])
-    y2 = random.choice([d, d, z2, x2])
-    y3 = random.choice([e, e, z3, x3])
+    y1 = random.choice([c, c, c, c, c, c, c, c, c, z1, x1])
+    y2 = random.choice([d, d, d, d, d, d, d, d, d, z2, x2])
+    y3 = random.choice([e, e, e, e, e, e, e, e, e, z3, x3])
 
     if y1 == x1 or y2 == x2 or y3 == x3:
     	enemyPresent = True
@@ -379,28 +378,32 @@ def updateFrame():
           #########Frame#########
 
 
-    print(Back.GREEN + chr(27) + "[2J")
+    """ print(Back.GREEN + chr(27) + "[2J")
     print(Style.RESET_ALL + " " + playerStory + "\n")
     print(Back.RED + "              Arena" + Style.RESET_ALL)
-    print(futurePosition)
     print(" ")
     print(" ")
     print("     ||" + healthDisplay + remainingDisplay + "\033[1;37;40m||")
     print("     ||" + manaDisplay + remainingDisplayMana + "\033[1;37;40m||")
     print("             \033[1;31;40mOrc " + "LVL 1" + "\n" + Style.RESET_ALL)
     print("     Inventory:" + str(playerInventory) + Style.RESET_ALL +"\n")
-    print(30 * '\033[1;37;40m-' + " " + playerWarning)
+    print(30 * '\033[1;37;40m-' + " " + playerWarning)"""
+	
+    print(clearTop)
+    print(futurePosition)
+    GUI.frame()
 
     playerWarning = " "
 
     while trapBox == 1:
-		global answerBattle
+		trapBoxAnswer = raw_input(" Do you want to enter ?").lower()
 
-		battleScreen()
-		answerBattle = raw_input()
-
-		if answerBattle == "attack":
-			v > c
+		if trapBoxAnswer == "yes":
+			exec(open("/Users/amihaianuc/Desktop/old-school-rpg/caveMiniGame.py").read())
+		
+		else:
+			trapBox = 0
+			updateFrame()
 
 
 
@@ -439,7 +442,6 @@ while trapBox == 0:
 	elif answer == "upupdowndownleftrightleftrightselectstart":
 		easterEgg()
 	elif answer == "new game":
-		resetGame()
 		updateFrame()
 	elif answer == "up" and playerBox == 5:
 		futurePosition = roomTwo
