@@ -19,16 +19,14 @@ def playerBox():
 
 def enemyBox():
     print(clearTop)
+    print(cyclop)
     print(cyclop + " \n ||" + EhealthDisplay + str(EremainingDisplay) + "\033[1;37;40m|| ")
     print("          " + Fore.RED + "Level " + str(npcLevel) + " " + "Cyclop" + Fore.WHITE)
     print(" ")
 
 
 def frame():
-    enemyBox()
     playerBox()
-
-print("test")
 
 
 def main():
