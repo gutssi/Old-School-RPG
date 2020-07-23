@@ -1,0 +1,17 @@
+image: python:3.8.0-alpine
+
+services:     
+  - docker:dind 
+
+stages:
+  - test     
+  - build     
+
+job1:
+  stage: test     
+  script:
+    - pwd
+    - ls -a         
+    - python -V        
+    - python playAll.py
+
