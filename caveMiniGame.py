@@ -6,7 +6,8 @@ from ownlib import clearTop, printSlow
 from colorama import Fore, Back, Style
 import time
 import random
-import art, deadScreen
+import art
+import deadScreen
 
 
 run = True
@@ -190,7 +191,7 @@ remainingXpDisplay = ' ' * xpRemain
 ############################# ENEMY INFO #################################
 
 ### Health ###
-Ehealth = 350
+Ehealth = 40
 EmaxHealth = 350
 Edashes = 31
 # HP Logic
@@ -377,7 +378,7 @@ def EnemyAttacksPlayer():
 		remainingXpDisplay = " " * 31
 
 	if healthDisplay.count("+") < 1:
-		deadScreen()
+		deadScreen.deadScreen()
 
 
 
@@ -497,7 +498,7 @@ while run == True:
 		playerWarning = "Keep " + Fore.RED + "exploring " + Fore.WHITE + "the " + Fore.BLUE + "cave" + Fore.WHITE + " ?" + Fore.YELLOW + "   Yes" + Fore.WHITE + " / " + Fore.GREEN + "No " + Fore.WHITE
 		emptyF()
 
-		advanceAnswer = raw_input().lower()
+		advanceAnswer = input().lower()
 		if advanceAnswer == "yes" or advanceAnswer == "y":
 			Ehealth = 300
 			playerWarning = Fore.YELLOW + "Exploring the cave for goods" + Fore.WHITE
@@ -541,7 +542,7 @@ while run == True:
 			time.sleep(0.3)
 			print(clearTop)
 
-			exit()
+			run = False
 
 
 
@@ -552,10 +553,10 @@ while run == True:
 	EnemyAttacksPlayer()
 
 
-	if healthDisplay.count("+") < 1:
-		combatAnswer = raw_input(Fore.RED + "Press ENTER to quit " + Fore.WHITE).lower()
+	if healthDisplay.count("+") < 1 and run == True:
+		combatAnswer = input(Fore.RED + "Press ENTER to quit " + Fore.WHITE).lower()
 	else:
-		combatAnswer = raw_input(Fore.BLUE + "Press ENTER to attack " + Fore.WHITE).lower()
+		combatAnswer = input(Fore.BLUE + "Press ENTER to attack " + Fore.WHITE).lower()
 
 
 	if combatAnswer != False:

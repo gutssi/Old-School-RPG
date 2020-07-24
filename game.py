@@ -380,21 +380,23 @@ def updateFrame():
 
 
 
+	while trapBox == 1:
+		playerWarning = " Do you want to enter ?"
+		trapBoxAnswer = input().lower()
+
+		if trapBoxAnswer == "yes":
+			exec(open("/Users/amihaianuc/Desktop/old-school-rpg/caveMiniGame.py").read())
+			updateFrame()
+		
+		else:
+			trapBox = 0
+			updateFrame()
+
 	print(clearTop)
 	print(futurePosition)
 	GUI.frame()
 
 	playerWarning = " "
-
-	while trapBox == 1:
-		trapBoxAnswer = input(" Do you want to enter ?").lower()
-
-		if trapBoxAnswer == "yes":
-			exec(open("/Users/amihaianuc/Desktop/old-school-rpg/caveMiniGame.py").read())
-		
-		else:
-			trapBox = 0
-			updateFrame()
 
 
 
@@ -402,7 +404,7 @@ def updateFrame():
 print(chr(27) + "[2J")
 print(30 * '-')
 print("")
-print(Back.RED + "             Arena" + Style.RESET_ALL)
+print(Fore.RED + "             Arena" + Fore.WHITE)
 print("")
 print("")
 print("""type "help" for known commands""")
@@ -415,6 +417,7 @@ print ("")
 
 
 while trapBox == 0:
+	from GUI import frame
 	answer = input("\033[1;37;40m > ").lower()
 	if answer == "help":
 	    print(" ")
@@ -434,159 +437,159 @@ while trapBox == 0:
 		easterEgg()
 	elif answer == "new game":
 		updateFrame()
-	elif answer == "up" and playerBox == 5:
+	elif answer == 'w' and playerBox == 5:
 		futurePosition = roomTwo
 		playerBox = 2
 		updateFrame()
-	elif answer == "down" and playerBox == 5:
+	elif answer == "s" and playerBox == 5:
 		futurePosition = roomEight
 		playerBox = 8
 		updateFrame()
-	elif answer == "right" and playerBox == 5:
+	elif answer == "d" and playerBox == 5:
 		futurePosition = roomSix
 		playerBox = 6
 		updateFrame()
-	elif answer == "left" and playerBox == 5:
+	elif answer == "a" and playerBox == 5:
 		futurePosition = roomFour
 		playerBox = 4
 		updateFrame()
-	elif answer == "up" and playerBox == 2:
+	elif answer == "w" and playerBox == 2:
 		futurePosition = roomTwo
 		playerBox = 2
 		playerWarning = "You can't go up. There's a wall."
 		updateFrame()
-	elif answer == "down" and playerBox == 2:
+	elif answer == "s" and playerBox == 2:
 		futurePosition = roomFive
 		playerBox = 5
 		updateFrame()
-	elif answer == "right" and playerBox == 2:
+	elif answer == "d" and playerBox == 2:
 		futurePosition = roomThree
 		playerBox = 3
 		updateFrame()
-	elif answer == "left" and playerBox == 2:
+	elif answer == "a" and playerBox == 2:
 		futurePosition = roomOne
 		playerBox = 1
 		updateFrame()
-	elif answer == "up" and playerBox == 8:
+	elif answer == "w" and playerBox == 8:
 		futurePosition = roomFive
 		playerBox = 5
 		updateFrame()
-	elif answer == "down" and playerBox == 8:
+	elif answer == "s" and playerBox == 8:
 		futurePosition = roomEight
 		playerBox = 8
 		playerWarning = "You can't go down. There's a wall."
 		updateFrame()
-	elif answer == "right" and playerBox == 8:
+	elif answer == "d" and playerBox == 8:
 		futurePosition = roomNine
 		playerBox = 9
 		updateFrame()
-	elif answer == "left" and playerBox == 8:
+	elif answer == "a" and playerBox == 8:
 		futurePosition = roomSeven
 		playerBox = 7
 		updateFrame()
-	elif answer == "up" and playerBox == 1:
+	elif answer == "w" and playerBox == 1:
 		futurePosition = roomOne
 		playerBox = 1
 		playerWarning = "You can't go up. There's a wall."
 		updateFrame()
-	elif answer == "down" and playerBox == 1:
+	elif answer == "s" and playerBox == 1:
 		futurePosition = roomFour
 		playerBox = 4
 		updateFrame()
-	elif answer == "right" and playerBox == 1:
+	elif answer == "d" and playerBox == 1:
 		futurePosition = roomTwo
 		playerBox = 2
 		updateFrame()
-	elif answer == "left" and playerBox == 1:
+	elif answer == "a" and playerBox == 1:
 		futurePosition = roomOne
 		playerBox = 1
 		playerWarning = "You can't go left. There's a wall."
 		updateFrame()
-	elif answer == "up" and playerBox == 3:
+	elif answer == "w" and playerBox == 3:
 		futurePosition = roomThree
 		playerBox = 3
 		playerWarning = "You can't go up. There's a wall."
 		updateFrame()
-	elif answer == "down" and playerBox == 3:
+	elif answer == "s" and playerBox == 3:
 		futurePosition = roomSix
 		playerBox = 6
 		updateFrame()
-	elif answer == "right" and playerBox == 3:
+	elif answer == "d" and playerBox == 3:
 		futurePosition = roomThree
 		playerBox = 3
 		playerWarning = "You can't go right. There's a wall."
 		updateFrame()
-	elif answer == "left" and playerBox == 3:
+	elif answer == "a" and playerBox == 3:
 		futurePosition = roomTwo
 		playerBox = 2
 		updateFrame()
-	elif answer == "up" and playerBox == 4:
+	elif answer == "w" and playerBox == 4:
 		futurePosition = roomOne
 		playerBox = 1
 		updateFrame()
-	elif answer == "down" and playerBox == 4:
+	elif answer == "s" and playerBox == 4:
 		futurePosition = roomSeven
 		playerBox = 7
 		updateFrame()
-	elif answer == "right" and playerBox == 4:
+	elif answer == "d" and playerBox == 4:
 		futurePosition = roomFive
 		playerBox = 5
 		updateFrame()
-	elif answer == "left" and playerBox == 4:
+	elif answer == "a" and playerBox == 4:
 		futurePosition = roomFour
 		playerBox = 4
 		playerWarning = "You can't go left. There's a wall."
 		updateFrame()
-	elif answer == "up" and playerBox == 6:
+	elif answer == "w" and playerBox == 6:
 		futurePosition = roomThree
 		playerBox = 3
 		updateFrame()
-	elif answer == "down" and playerBox == 6:
+	elif answer == "s" and playerBox == 6:
 		futurePosition = roomNine
 		playerBox = 9
 		updateFrame()
-	elif answer == "right" and playerBox == 6:
+	elif answer == "d" and playerBox == 6:
 		futurePosition = roomSix
 		playerBox = 6
 		playerWarning = "You can't go right. There's a wall."
 		updateFrame()
-	elif answer == "left" and playerBox == 6:
+	elif answer == "a" and playerBox == 6:
 		futurePosition = roomFive
 		playerBox = 5
 		updateFrame()
-	elif answer == "up" and playerBox == 7:
+	elif answer == "w" and playerBox == 7:
 		futurePosition = roomFour
 		playerBox = 4
 		updateFrame()
-	elif answer == "down" and playerBox == 7:
+	elif answer == "s" and playerBox == 7:
 		futurePosition = roomSeven
 		playerBox = 7
 		playerWarning = "You can't go down. There's a wall."
 		updateFrame()
-	elif answer == "right" and playerBox == 7:
+	elif answer == "d" and playerBox == 7:
 		futurePosition = roomEight
 		playerBox = 8
 		updateFrame()
-	elif answer == "left" and playerBox == 7:
+	elif answer == "a" and playerBox == 7:
 		futurePosition = roomSeven
 		playerBox = 7
 		playerWarning = "You can't go left. There's a wall."
 		updateFrame()
-	elif answer == "up" and playerBox == 9:
+	elif answer == "w" and playerBox == 9:
 		futurePosition = roomSix
 		playerBox = 6
 		updateFrame()
-	elif answer == "down" and playerBox == 9:
+	elif answer == "s" and playerBox == 9:
 		futurePosition = roomNine
 		playerBox = 9
 		playerWarning = "You can't go down. There's a wall."
 		updateFrame()
-	elif answer == "right" and playerBox == 9:
+	elif answer == "d" and playerBox == 9:
 		futurePosition = roomNine
 		playerBox = 9
 		playerWarning = "You can't go right. There's a wall."
 		updateFrame()
-	elif answer == "left" and playerBox == 9:
+	elif answer == "a" and playerBox == 9:
 		futurePosition = roomEight
 		playerBox = 8
 		updateFrame()
