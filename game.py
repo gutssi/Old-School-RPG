@@ -276,129 +276,118 @@ def enemyPresent():
 
 def updateFrame():
 
-    global health
-    global playerInventory
-    global playerBox
-    global futurePosition
-    global previousPosition
-    global gameOver
-    global answerTwo
-    global playerStory
-    global playerWarning
-    global spaceX
-    global randomNPC
-    global NPCrate
-    global a, b, c, d, e
-    global emptyMap
-    global roomOne
-    global roomTwo
-    global roomThree
-    global roomFour
-    global roomFive
-    global roomSix
-    global roomSeven
-    global roomEight
-    global roomNine
-    global randomA
-    global currentFloor
-    global enemyPresent, lootPresent
-    global maxHealth, healthDashes
-    global currentDashes
-    global bf0, bf1, bf2, x1, x2, x3, y1, y2, y3, z1, z2, z3
-    global encounterBox, getHealed, getDamage
-    global mana, maxMana, minMana, manaDashes
-    global answer, trapBox, battleScreen
+	global health
+	global playerInventory
+	global futurePosition
+	global previousPosition
+	global gameOver
+	global answerTwo
+	global playerStory
+	global playerWarning
+	global spaceX
+	global randomNPC
+	global NPCrate
+	global a, b, c, d, e
+	global emptyMap
+	global roomOne
+	global roomTwo
+	global roomThree
+	global roomFour
+	global roomFive
+	global roomSix
+	global roomSeven
+	global roomEight
+	global roomNine
+	global randomA
+	global currentFloor
+	global enemyPresent, lootPresent
+	global maxHealth, healthDashes
+	global currentDashes
+	global bf0, bf1, bf2, x1, x2, x3, y1, y2, y3, z1, z2, z3
+	global encounterBox, getHealed, getDamage
+	global mana, maxMana, minMana, manaDashes
+	global answer, trapBox, battleScreen
 
-    y1 = random.choice([c, c, c, c, c, c, c, c, c, z1, x1])
-    y2 = random.choice([d, d, d, d, d, d, d, d, d, z2, x2])
-    y3 = random.choice([e, e, e, e, e, e, e, e, e, z3, x3])
+	y1 = random.choice([c, c, c, c, c, c, c, c, c, z1, x1])
+	y2 = random.choice([d, d, d, d, d, d, d, d, d, z2, x2])
+	y3 = random.choice([e, e, e, e, e, e, e, e, e, z3, x3])
 
-    if y1 == x1 or y2 == x2 or y3 == x3:
-    	enemyPresent = True
+	if y1 == x1 or y2 == x2 or y3 == x3:
+		enemyPresent = True
 
-    	if enemyPresent == True:
-    		trapBox = 1
-    		randomN = random.randint(1,101)
-    		health -= randomN
-    		playerWarning = "Enemy attacked you! for " + str(randomN) + " damage"
+		if enemyPresent == True:
+			trapBox = 1
+			randomN = random.randint(1,101)
+			health -= randomN
+			playerWarning = "Enemy attacked you! for " + str(randomN) + " damage"
 
-    if y1 == z1 or y2 == z2 or y3 == z3:
-    	lootPresent = True
+	if y1 == z1 or y2 == z2 or y3 == z3:
+		lootPresent = True
 
-    	if lootPresent == True:
-    		randomN = random.randint(1,101)
-    		health += randomN
-    		playerWarning = "You found a chest! and healed " + str(randomN) + " health"
+		if lootPresent == True:
+			randomN = random.randint(1,101)
+			health += randomN
+			playerWarning = "You found a chest! and healed " + str(randomN) + " health"
 
-    if health > 200:
-    	health = 200
+	if health > 200:
+		health = 200
 
-    roomOne = b + y1 + b + a + b + a + bf2
-    roomTwo = b + y2 + b + a + b + a + bf2
-    roomThree = b + y3 + b + a + b + a + bf2
-    roomFour = b + a + b + y1 + b + a + bf1
-    roomFive = b + a + b + y2 + b + a + bf1
-    roomSix = b + a + b + y3 + b + a + bf1
-    roomSeven = b + a + b + a + b + y1 + bf0
-    roomEight = b + a + b + a + b + y2 + bf0
-    roomNine = b + a + b + a + b + y3 + bf0
-
+	roomOne = b + y1 + b + a + b + a + bf2
+	roomTwo = b + y2 + b + a + b + a + bf2
+	roomThree = b + y3 + b + a + b + a + bf2
+	roomFour = b + a + b + y1 + b + a + bf1
+	roomFive = b + a + b + y2 + b + a + bf1
+	roomSix = b + a + b + y3 + b + a + bf1
+	roomSeven = b + a + b + a + b + y1 + bf0
+	roomEight = b + a + b + a + b + y2 + bf0
+	roomNine = b + a + b + a + b + y3 + bf0
 
 
-    dashConvert = int(maxHealth/healthDashes)
-    dashConvertMana = int(maxMana/manaDashes)
-    currentDashes = int(health/dashConvert)
-    currentDashesMana = int(mana/dashConvertMana)
-    remainingHealth = healthDashes - currentDashes
-    remainingMana = manaDashes - currentDashesMana
-    healthDisplay = '\033[1;31;40m+' * currentDashes
-    manaDisplay = Fore.BLUE + "=" * currentDashesMana
-    remainingDisplay = ' ' * remainingHealth
-    remainingDisplayMana = ' ' * remainingMana
-    percent = str(int((health/maxHealth)*100)) + "%"
-    percentMana = str(int((mana/maxMana)*100)) + "%"
 
-    if health < 0.1 and trapBox == 1:
-        print(chr(27) + "[2J")
-        print(deadArt)
-        printSlow("You Died!\n")
-        printSlow("Do you want to play again? yes/no\n")
-        answerTwo = raw_input("\033[1;37;40m > ").lower()
-        if answerTwo == "no":
-            gameOver = True
-        elif answerTwo == "yes":
-            health = 200.0
-            trapBox = 0
-            playerInventory = " empty"
-            playerBox = 7
-            futurePosition = roomSeven
-            previousPosition = roomSeven
-            gameOver = False
+	dashConvert = int(maxHealth/healthDashes)
+	dashConvertMana = int(maxMana/manaDashes)
+	currentDashes = int(health/dashConvert)
+	currentDashesMana = int(mana/dashConvertMana)
+	remainingHealth = healthDashes - currentDashes
+	remainingMana = manaDashes - currentDashesMana
+	healthDisplay = '\033[1;31;40m+' * currentDashes
+	manaDisplay = Fore.BLUE + "=" * currentDashesMana
+	remainingDisplay = ' ' * remainingHealth
+	remainingDisplayMana = ' ' * remainingMana
+	percent = str(int((health/maxHealth)*100)) + "%"
+	percentMana = str(int((mana/maxMana)*100)) + "%"
+
+	if health < 0.1 and trapBox == 1:
+		print(chr(27) + "[2J")
+		print(deadArt)
+		printSlow("You Died!\n")
+		printSlow("Do you want to play again? yes/no\n")
+		answerTwo = input("\033[1;37;40m > ").lower()
+		if answerTwo == "no":
+			gameOver = True
+		elif answerTwo == "yes":
+			health = 200.0
+			trapBox = 0
+			playerInventory = " empty"
+			playerBox = 7
+			futurePosition = roomSeven
+			previousPosition = roomSeven
+			gameOver = False
 
 
 
           #########Frame#########
 
 
-    """ print(Back.GREEN + chr(27) + "[2J")
-    print(Style.RESET_ALL + " " + playerStory + "\n")
-    print(Back.RED + "              Arena" + Style.RESET_ALL)
-    print(" ")
-    print(" ")
-    print("     ||" + healthDisplay + remainingDisplay + "\033[1;37;40m||")
-    print("     ||" + manaDisplay + remainingDisplayMana + "\033[1;37;40m||")
-    print("             \033[1;31;40mOrc " + "LVL 1" + "\n" + Style.RESET_ALL)
-    print("     Inventory:" + str(playerInventory) + Style.RESET_ALL +"\n")
-    print(30 * '\033[1;37;40m-' + " " + playerWarning)"""
-	
-    print(clearTop)
-    print(futurePosition)
-    GUI.frame()
 
-    playerWarning = " "
+	print(clearTop)
+	print(futurePosition)
+	GUI.frame()
 
-    while trapBox == 1:
-		trapBoxAnswer = raw_input(" Do you want to enter ?").lower()
+	playerWarning = " "
+
+	while trapBox == 1:
+		trapBoxAnswer = input(" Do you want to enter ?").lower()
 
 		if trapBoxAnswer == "yes":
 			exec(open("/Users/amihaianuc/Desktop/old-school-rpg/caveMiniGame.py").read())
@@ -426,7 +415,7 @@ print ("")
 
 
 while trapBox == 0:
-	answer = raw_input("\033[1;37;40m > ").lower()
+	answer = input("\033[1;37;40m > ").lower()
 	if answer == "help":
 	    print(" ")
 	    printSlow(" you can use the following commands: h, q, d, m, s, f, debug, up")

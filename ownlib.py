@@ -2,14 +2,14 @@ import os, sys, subprocess, time
 from sys import version_info
 
 
-def py2py3():
+"""def py2py3():
 	if version_info.major == 3:
         input = raw_input
     elif version_info.major == 2:
         raw_input = input
     else:
         print("Unknown python version - input function not safe")
-
+"""
 def openFile(filename):
     if sys.platform == "win32":
         os.startfile(filename)
