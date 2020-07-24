@@ -12,7 +12,7 @@ dashConvert = int(maxHealth/healthDashes)
 currentDashes = int(health/dashConvert)
 remainingHealth = healthDashes - currentDashes
 # HP Bar
-healthDisplay = '\033[1;31;40m+' * currentDashes
+healthDisplay = '+' * currentDashes
 remainingDisplay = ' ' * remainingHealth
 ### Health ###
 

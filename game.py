@@ -235,7 +235,6 @@ def battleScreen():
 	currentDashes = int(health/dashConvert)
 	currentDashesMana = int(mana/dashConvertMana)
 	remainingHealth = healthDashes - currentDashes
-	remainingMana = manaDashes - currentDashesMana
 	healthDisplay = '\033[1;31;40m+' * currentDashes
 	manaDisplay = Fore.BLUE + "=" * currentDashesMana
 	remainingDisplay = ' ' * remainingHealth
@@ -369,7 +368,6 @@ def updateFrame():
 			health = 200.0
 			trapBox = 0
 			playerInventory = " empty"
-			playerBox = 7
 			futurePosition = roomSeven
 			previousPosition = roomSeven
 			gameOver = False
@@ -390,7 +388,7 @@ def updateFrame():
 		trapBoxAnswer = input(" Do you want to enter ?").lower()
 
 		if trapBoxAnswer == "yes":
-			exec(open("/Users/amihaianuc/Desktop/old-school-rpg/caveMiniGame.py").read())
+			exec(open("caveMiniGame.py").read())
 		
 		else:
 			trapBox = 0

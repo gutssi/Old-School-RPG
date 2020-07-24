@@ -9,18 +9,19 @@ playerWarning = " Warning message"
 
 
 def playerBox():
+    print(" ")
     print(playerWarning)
-    print("+" + 47 * '\033[1;37;40m-' + "+")
-    print(" ||" + healthDisplay + remainingDisplay + "\033[1;37;40m|| " + Fore.RED + "HP " + str(health) + "/" + str(maxHealth) + Fore.WHITE)
-    print(" ||" + xpDisplay + str(remainingXpDisplay) + "\033[1;37;40m|| " + Fore.BLUE + "XP " + str(xp) + "/" + str(maxxp) + Fore.WHITE)
-    print("+" + 47 * '\033[1;37;40m-' + "+")
+    print("+" + 47 * '-' + "+")
+    print(" ||" + Fore.RED + healthDisplay + remainingDisplay + Fore.WHITE + "|| " + Fore.RED + "HP " + str(health) + "/" + str(maxHealth) + Fore.WHITE)
+    print(" ||" + Fore.BLUE + xpDisplay + remainingXpDisplay + Fore.WHITE + "|| " + Fore.BLUE + "XP " + str(xp) + "/" + str(maxxp) + Fore.WHITE)
+    print("+" + 47 * '-' + "+")
 
 
 
 def enemyBox():
     print(clearTop)
     print(cyclop)
-    print(cyclop + " \n ||" + EhealthDisplay + str(EremainingDisplay) + "\033[1;37;40m|| ")
+    print(cyclop + " \n ||" + EhealthDisplay + str(EremainingDisplay) + "|| ")
     print("          " + Fore.RED + "Level " + str(npcLevel) + " " + "Cyclop" + Fore.WHITE)
     print(" ")
 

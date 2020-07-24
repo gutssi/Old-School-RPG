@@ -198,7 +198,7 @@ EdashConvert = int(EmaxHealth/Edashes)
 EcurrentDashes = int(Ehealth/EdashConvert)
 EremainingHealth = Edashes - EcurrentDashes
 # HP Bar
-EhealthDisplay = '\033[1;31;40m+' * EcurrentDashes
+EhealthDisplay = '\\033[1;31;40m+' * EcurrentDashes
 EremainingDisplay = ' ' * EremainingHealth
 ### Health ###
 
@@ -249,13 +249,13 @@ def emptyF():
 	print(clearTop) #Clear
 	print(Back.RED + "                                   " + Back.BLACK)
 	print(Back.RED + "              Cyclop               " + Back.BLACK) #Name
-	print("||" + EhealthDisplay + str(EremainingDisplay) + "\033[1;37;40m|| " + Fore.RED + "HP" + Fore.WHITE)
+	print("||" + EhealthDisplay + str(EremainingDisplay) + "|| " + Fore.RED + "HP" + Fore.WHITE)
 	print(emptyFrame) #Enemy if any?
 
-	print("||" + healthDisplay + remainingDisplay + "\033[1;37;40m|| " + Fore.RED + "HP" + Fore.WHITE)
-	print("||" + xpDisplay + str(remainingXpDisplay) + "\033[1;37;40m|| " + Fore.BLUE + "XP" + Fore.WHITE) #Health and xp bars
+	print("||" + healthDisplay + remainingDisplay + "|| " + Fore.RED + "HP" + Fore.WHITE)
+	print("||" + xpDisplay + str(remainingXpDisplay) + "|| " + Fore.BLUE + "XP" + Fore.WHITE) #Health and xp bars
 	print(Fore.WHITE + playerWarning)
-	print(36 * '\033[1;37;40m-')
+	print(36 * '-')
 
 def enemyF():
 	global playerWarning, xpDisplay, remainingXpDisplay, cyclop
@@ -263,13 +263,13 @@ def enemyF():
 	print(clearTop) #Clear
 	print(Back.RED + "                                   " + Back.BLACK)
 	print(Back.RED + "              Cyclop               " + Back.BLACK) #Name
-	print("||" + EhealthDisplay + str(EremainingDisplay) + "\033[1;37;40m|| " + Fore.RED + "HP" + Fore.WHITE)
+	print("||" + EhealthDisplay + str(EremainingDisplay) + "|| " + Fore.RED + "HP" + Fore.WHITE)
 	print(cyclop) #Enemy if any?
 
-	print("||" + healthDisplay + remainingDisplay + "\033[1;37;40m|| " + Fore.RED + "HP" + Fore.WHITE)
-	print("||" + xpDisplay + str(remainingXpDisplay) + "\033[1;37;40m|| " + Fore.BLUE + "XP" + Fore.WHITE) #Health and xp bars
+	print("||" + healthDisplay + remainingDisplay + "|| " + Fore.RED + "HP" + Fore.WHITE)
+	print("||" + xpDisplay + str(remainingXpDisplay) + "|| " + Fore.BLUE + "XP" + Fore.WHITE) #Health and xp bars
 	print(Fore.WHITE + playerWarning)
-	print(36 * '\033[1;37;40m-')
+	print(36 * '-')
 
 def enemyFr():
 	global playerWarning, xpDisplay, remainingXpDisplay
@@ -277,13 +277,13 @@ def enemyFr():
 	print(clearTop) #Clear
 	print(Back.RED + "                                   " + Back.BLACK)
 	print(Back.RED + "              Cyclop               " + Back.BLACK) #Name
-	print("||" + EhealthDisplay + str(EremainingDisplay) + "\033[1;37;40m|| " + Fore.RED + "HP" + Fore.WHITE)
+	print("||" + EhealthDisplay + str(EremainingDisplay) + "|| " + Fore.RED + "HP" + Fore.WHITE)
 	print(Fore.RED + cyclop + Fore.WHITE) #Enemy if any?
 
-	print("||" + healthDisplay + remainingDisplay + "\033[1;37;40m|| " + Fore.RED + "HP" + Fore.WHITE)
-	print("||" + xpDisplay + str(remainingXpDisplay) + "\033[1;37;40m|| " + Fore.BLUE + "XP" + Fore.WHITE) #Health and xp bars
+	print("||" + healthDisplay + remainingDisplay + "|| " + Fore.RED + "HP" + Fore.WHITE)
+	print("||" + xpDisplay + str(remainingXpDisplay) + "|| " + Fore.BLUE + "XP" + Fore.WHITE) #Health and xp bars
 	print(Fore.RED + playerWarning + Fore.WHITE)
-	print(36 * '\033[1;37;40m-')
+	print(36 * '-')
 
 	time.sleep(0.5)
 
@@ -296,10 +296,10 @@ def emptyFr():
 	print(Back.RED + "                                   " + Back.BLACK)
 	print(Fore.RED + emptyFrame + Fore.WHITE)
 
-	print("||" + healthDisplay + remainingDisplay + "\033[1;37;40m|| " + Fore.RED + "HP" + Fore.WHITE)
-	print("||" + xpDisplay + str(remainingXpDisplay) + "\033[1;37;40m|| " + Fore.BLUE + "XP" + Fore.WHITE) #Health and xp bars
+	print("||" + healthDisplay + remainingDisplay + "|| " + Fore.RED + "HP" + Fore.WHITE)
+	print("||" + xpDisplay + str(remainingXpDisplay) + "|| " + Fore.BLUE + "XP" + Fore.WHITE) #Health and xp bars
 	print(Fore.RED + playerWarning + Fore.WHITE)
-	print(36 * '\033[1;37;40m-')
+	print(36 * '-')
 
 	time.sleep(0.1)
 
@@ -312,10 +312,10 @@ def emptyFrr():
 	print(Back.RED + "                                   " + Back.BLACK)
 	print(emptyFrame)
 
-	print("||" + healthDisplay + remainingDisplay + "\033[1;37;40m|| " + Fore.RED + "HP" + Fore.WHITE)
-	print("||" + xpDisplay + str(remainingXpDisplay) + "\033[1;37;40m|| " + Fore.BLUE + "XP" + Fore.WHITE) #Health and xp bars
+	print("||" + healthDisplay + remainingDisplay + "|| " + Fore.RED + "HP" + Fore.WHITE)
+	print("||" + xpDisplay + str(remainingXpDisplay) + "|| " + Fore.BLUE + "XP" + Fore.WHITE) #Health and xp bars
 	print(Fore.RED + playerWarning + Fore.WHITE)
-	print(36 * '\033[1;37;40m-')
+	print(36 * '-')
 
 	time.sleep(0.1)
 ### FRAMES ###
@@ -497,7 +497,7 @@ while run == True:
 		playerWarning = "Keep " + Fore.RED + "exploring " + Fore.WHITE + "the " + Fore.BLUE + "cave" + Fore.WHITE + " ?" + Fore.YELLOW + "   Yes" + Fore.WHITE + " / " + Fore.GREEN + "No " + Fore.WHITE
 		emptyF()
 
-		advanceAnswer = raw_input().lower()
+		advanceAnswer = input().lower()
 		if advanceAnswer == "yes" or advanceAnswer == "y":
 			Ehealth = 300
 			playerWarning = Fore.YELLOW + "Exploring the cave for goods" + Fore.WHITE
@@ -553,9 +553,9 @@ while run == True:
 
 
 	if healthDisplay.count("+") < 1:
-		combatAnswer = raw_input(Fore.RED + "Press ENTER to quit " + Fore.WHITE).lower()
+		combatAnswer = input(Fore.RED + "Press ENTER to quit " + Fore.WHITE).lower()
 	else:
-		combatAnswer = raw_input(Fore.BLUE + "Press ENTER to attack " + Fore.WHITE).lower()
+		combatAnswer = input(Fore.BLUE + "Press ENTER to attack " + Fore.WHITE).lower()
 
 
 	if combatAnswer != False:
