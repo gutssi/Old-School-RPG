@@ -1,6 +1,3 @@
-from ownlib import clearTop
-import time
-
 ##############################################################################################################
 cyclop = """\n
            __.......__          
@@ -224,29 +221,7 @@ fairy = '''\n
        /_/
 '''
 ##############################################################################################################
-
-
-
-
-################################################
-
 locations = [castle, cave]
 monsters = [fairy, spider, cyclop]
 events = [lootBox, mushroom, bridge, hallway]
-
-def main():
-    for l in locations:
-        print(clearTop + l)
-        time.sleep(1)
-    for m in monsters:
-        print(clearTop + m)
-        time.sleep(1)
-    for e in events:
-        print(clearTop + e)
-        time.sleep(1)
-
-
-if __name__ == "__main__":
-    main()
-
 ################################################

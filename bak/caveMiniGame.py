@@ -553,9 +553,9 @@ while run == True:
 
 
 	if healthDisplay.count("+") < 1:
-		combatAnswer = raw_input(Fore.RED + "Press ENTER to quit " + Fore.WHITE).lower()
+		combatAnswer = input(Fore.RED + "Press ENTER to quit " + Fore.WHITE).lower()
 	else:
-		combatAnswer = raw_input(Fore.BLUE + "Press ENTER to attack " + Fore.WHITE).lower()
+		combatAnswer = input(Fore.BLUE + "Press ENTER to attack " + Fore.WHITE).lower()
 
 
 	if combatAnswer != False:

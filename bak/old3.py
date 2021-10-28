@@ -4,7 +4,7 @@ from ownlib import clearTop, printSlow
 from colorama import Fore, Back, Style
 import time
 import random
-from monsters import *
+#from monsters import *
 
 
 run = True
