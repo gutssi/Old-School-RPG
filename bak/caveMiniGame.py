@@ -497,7 +497,7 @@ while run == True:
 		playerWarning = "Keep " + Fore.RED + "exploring " + Fore.WHITE + "the " + Fore.BLUE + "cave" + Fore.WHITE + " ?" + Fore.YELLOW + "   Yes" + Fore.WHITE + " / " + Fore.GREEN + "No " + Fore.WHITE
 		emptyF()
 
-		advanceAnswer = raw_input().lower()
+		advanceAnswer = input().lower()
 		if advanceAnswer == "yes" or advanceAnswer == "y":
 			Ehealth = 300
 			playerWarning = Fore.YELLOW + "Exploring the cave for goods" + Fore.WHITE
